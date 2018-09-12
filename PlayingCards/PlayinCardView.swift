@@ -16,21 +16,9 @@ class PlayingCardView: UIView {
     @IBInspectable
     var suit: String = "♦️" {didSet {setNeedsDisplay(); setNeedsLayout()}}
     @IBInspectable
-    var isFaceUp = true{didSet {setNeedsDisplay(); setNeedsLayout()}}
+    var isFaceUp = false{didSet {setNeedsDisplay(); setNeedsLayout()}}
     
-//    var imageSizeScale = SizeRatio.faceCardImageSizeToBoundsSize {didSet {
-//        setNeedsDisplay()
-//        }}
-//    @objc func handleSize(recognizer : UIPinchGestureRecognizer){
-//        switch recognizer.state {
-//        case .changed,.ended:
-//            print("hello")
-//            imageSizeScale *= recognizer.scale
-//            recognizer.scale = 1.0 // reset
-//        default:
-//            break
-//        }
-//    }
+
     var faceCardScale: CGFloat = SizeRatio.faceCardImageSizeToBoundsSize { didSet { setNeedsDisplay();print("hello zoom") } }
     
     @ objc func adjustFaceCardScale(byHandlingGestureRecognizerBy recognizer: UIPinchGestureRecognizer) {
