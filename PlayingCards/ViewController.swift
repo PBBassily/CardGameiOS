@@ -12,7 +12,8 @@ class ViewController: UIViewController {
     
     var deck = PlayingCardDeck()
     
-    
+    private lazy var animator = UIDynamicAnimator(referenceView: view)
+    private lazy var cardBehavior = CardBehavior(in: animator)
     
     @IBOutlet var cardViews: [PlayingCardView]!
     
@@ -28,12 +29,13 @@ class ViewController: UIViewController {
     @objc func flipCard(_ sender: UITapGestureRecognizer) {
         switch sender.state {
         case .ended :
+            
             let cardView = sender.view as? PlayingCardView
             UIView.transition(
                 with: cardView!,
                 duration: 0.6,
                 options: [.transitionFlipFromLeft],
-                animations: {cardView!.isFaceUp = !cardView!.isFaceUp},
+                animations: {cardView!.isFaceUp = !cardView!.isFaceUp;self.cardBehavior.removeItem(cardView!)},
                 completion: { finished in
                     if self.isMatched {
                         self.faceUpCards.forEach({card in
@@ -43,7 +45,7 @@ class ViewController: UIViewController {
                                 options: [],
                                 animations: ({
                                     self.faceUpCards.forEach({
-                                        $0.transform = CGAffineTransform.identity.scaledBy(x: 5.0, y: 5.0)
+                                        $0.transform = CGAffineTransform.identity.scaledBy(x: 3.0, y: 3.0)
                                     })
                                 }), completion: ({card in
                                     UIViewPropertyAnimator.runningPropertyAnimator(
@@ -52,7 +54,7 @@ class ViewController: UIViewController {
                                         options: [],
                                         animations: ({
                                             self.faceUpCards.forEach({
-                                                $0.transform = CGAffineTransform.identity.scaledBy(x: 0.1, y: 0.01)
+                                                $0.transform = CGAffineTransform.identity.scaledBy(x: 0.1, y: 0.1)
                                             })
                                         }), completion: ({card in
                                             self.faceUpCards.forEach({
@@ -68,12 +70,14 @@ class ViewController: UIViewController {
                     }
                         
                     else if self.faceUpCards.count == 2 {
+                        
+                        
                         self.faceUpCards.forEach({card in
                             UIView.transition(
                                 with: card,
                                 duration: 0.6,
                                 options: [.transitionFlipFromLeft],
-                                animations: {card.isFaceUp = !card.isFaceUp})})
+                                animations: {card.isFaceUp = !card.isFaceUp;self.cardBehavior.addItem(card)})})
                     }
                     
             })
@@ -98,6 +102,7 @@ class ViewController: UIViewController {
             
             var tap = UITapGestureRecognizer(target: self, action: #selector(self.flipCard(_:)))
             cardViews[index].addGestureRecognizer(tap  )
+            cardBehavior.addItem(cardViews[index])
             
             index = availPos.remove(at: availPos.count.randomIndex)
             cardViews[index].rank = (cardModel?.rank.order)!
@@ -105,6 +110,8 @@ class ViewController: UIViewController {
             
             tap = UITapGestureRecognizer(target: self, action: #selector(self.flipCard(_:)))
             cardViews[index].addGestureRecognizer(tap  )
+            
+            cardBehavior.addItem(cardViews[index])
             
             
         }

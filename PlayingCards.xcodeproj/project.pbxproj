@@ -13,6 +13,7 @@
 		380B05942140048D00BDDD50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 380B05932140048D00BDDD50 /* Assets.xcassets */; };
 		380B05972140048D00BDDD50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 380B05952140048D00BDDD50 /* LaunchScreen.storyboard */; };
 		380B05A22140094B00BDDD50 /* PlayingCardsDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380B05A12140094B00BDDD50 /* PlayingCardsDeck.swift */; };
+		3869CADE215A45E300772F0A /* CardBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869CADD215A45E300772F0A /* CardBehaviour.swift */; };
 		38B5EA9521413A90000288D7 /* PlayingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5EA9421413A90000288D7 /* PlayingCard.swift */; };
 		38B5EA9721413BB1000288D7 /* PlayinCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5EA9621413BB1000288D7 /* PlayinCardView.swift */; };
 /* End PBXBuildFile section */
@@ -26,6 +27,7 @@
 		380B05962140048D00BDDD50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		380B05982140048D00BDDD50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		380B05A12140094B00BDDD50 /* PlayingCardsDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCardsDeck.swift; sourceTree = "<group>"; };
+		3869CADD215A45E300772F0A /* CardBehaviour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBehaviour.swift; sourceTree = "<group>"; };
 		38B5EA9421413A90000288D7 /* PlayingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCard.swift; sourceTree = "<group>"; };
 		38B5EA9621413BB1000288D7 /* PlayinCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayinCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,6 +70,7 @@
 				380B05A12140094B00BDDD50 /* PlayingCardsDeck.swift */,
 				38B5EA9421413A90000288D7 /* PlayingCard.swift */,
 				38B5EA9621413BB1000288D7 /* PlayinCardView.swift */,
+				3869CADD215A45E300772F0A /* CardBehaviour.swift */,
 			);
 			path = PlayingCards;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 				38B5EA9521413A90000288D7 /* PlayingCard.swift in Sources */,
 				38B5EA9721413BB1000288D7 /* PlayinCardView.swift in Sources */,
 				380B058D2140048A00BDDD50 /* AppDelegate.swift in Sources */,
+				3869CADE215A45E300772F0A /* CardBehaviour.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
